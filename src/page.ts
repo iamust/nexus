@@ -1,8 +1,9 @@
+import fs from 'fs-extra'
 import glob from 'fast-glob'
 import mustache from 'mustache'
+import chokidar from 'chokidar'
 import sortBy from 'lodash/sortBy'
 import filepath from './utils/filepath'
-import { readFileSync, outputFileSync } from 'fs-extra'
 
 type Route = {
   file: string
@@ -20,12 +21,17 @@ function getMainJS() {
 }
 
 function getTemplate() {
-  return readFileSync(`${__dirname}/files/nexus.mustache`, 'utf-8')
+  return fs.readFileSync(`${__dirname}/files/nexus.mustache`, 'utf-8')
 }
 
 function outputNexusJS(routes: Route[]) {
   const data = mustache.render(getTemplate(), { routes })
-  outputFileSync(getMainJS(), data)
+  fs.outputFileSync(getMainJS(), data)
+}
+
+function copyNexusPage(path: string) {
+  const file = filepath.getFile(path)
+  fs.copyFileSync(path, `.nexus/${file}`)
 }
 
 class Page {
@@ -47,6 +53,23 @@ class Page {
     )
   }
 
+  watch() {
+    chokidar
+      .watch('pages/**/*.{tsx,jsx}')
+      .on('add', (path) => {
+        copyNexusPage(path)
+        this.addRoute(path)
+        outputNexusJS(this.routes())
+      })
+      .on('change', (path) => {
+        copyNexusPage(path)
+      })
+      .on('unlink', (path) => {
+        this.removeRoute(path)
+        outputNexusJS(this.routes())
+      })
+  }
+
   private addRoute(path: string) {
     this._routes.push({
       file: filepath.getFile(path),
@@ -61,3 +84,5 @@ class Page {
     this._routes = this._routes.filter((route) => route.file != file)
   }
 }
+
+export default new Page()

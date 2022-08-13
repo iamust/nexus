@@ -1,6 +1,6 @@
-import webpack from 'webpack'
 import type { Compiler } from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
+import webpack from 'webpack'
 
 export class Bundler {
   private readonly compiler: Compiler
@@ -27,15 +27,9 @@ export class Bundler {
 //     bundler.outputEmptyJS('app')
 //     bundler.outputEmptyJS('404')
 //     bundler.outputEntryHTML()
-//     return new ParcelBundler(bundler.entryPath, {
-//       cacheDir: '.nexus/.cache',
 // export default ({ Component, pageProps }) => {
 //   return <Component {...pageProps} />
 // }
-
-// copyNexusPage(path) {
-//   const file = pathFormat(path).file()
-//   copySync(path, join('.nexus', file))
 // getContent() {
 //   return readFileSync(`${__dirname}/entry.mustache`, 'utf-8')
 // }

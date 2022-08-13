@@ -1,6 +1,7 @@
 import { defineTask } from '@tossdev/click'
 import { buildOptions } from '../utils'
 import { Bundler } from '../index'
+import page from '../page'
 
 export const serveTask = defineTask({
   name: 'dev',
@@ -9,23 +10,14 @@ export const serveTask = defineTask({
     const config = buildOptions(opts)
     const bundler = new Bundler()
     bundler.serve()
+    page.watch()
   }
 })
 
-//  lodash fs-extra trash
-
-// html-webpack-plugin
-// chokidar
-//   .watch('pages/**/*.js')
-//     .on('add', (path) => {
-//       copyNexusPage(path)
-//       router.addRoute({ path })
-//       router.outputNexusJS().then(() => {})
-//     })
-//     .on('change', (path) => {
-//       copyNexusPage(path)
-//     })
-//     .on('unlink', (path) => {
-//       router.removeRoute({ path })
-//       router.outputNexusJS().then(() => {})
-//     })
+// // trash
+// // html-webpack-plugin
+// src/config.ts
+// src/index.ts
+// src/tasks/build.ts
+// src/tasks/serve.ts
+// src/utils/index.ts
