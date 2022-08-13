@@ -1,4 +1,8 @@
 import glob from 'fast-glob'
+import mustache from 'mustache'
+import sortBy from 'lodash/sortBy'
+import filepath from './utils/filepath'
+import { readFileSync, outputFileSync } from 'fs-extra'
 
 type Route = {
   file: string
@@ -15,6 +19,15 @@ function getMainJS() {
   return `${process.cwd()}/.nexus/main.js`
 }
 
+function getTemplate() {
+  return readFileSync(`${__dirname}/files/nexus.mustache`, 'utf-8')
+}
+
+function outputNexusJS(routes: Route[]) {
+  const data = mustache.render(getTemplate(), { routes })
+  outputFileSync(getMainJS(), data)
+}
+
 class Page {
   private _routes: Route[]
 
@@ -28,32 +41,23 @@ class Page {
     return getPaths()
   }
 
+  routes() {
+    return sortBy(this._routes, ['depth', 'file']).filter(
+      ({ file }) => !/[404|app]\.js$/.test(file)
+    )
+  }
+
   private addRoute(path: string) {
-
-
-// ({  }) {
-//   this._routes.push({
-//     : pathFormat(path).pattern(),
-//     component: pathFormat(path).component()
+    this._routes.push({
+      file: filepath.getFile(path),
+      depth: path.split('/').length,
+      pattern: filepath.getPattern(path),
+      component: filepath.getComponent(path)
+    })
   }
 
   private removeRoute(path: string) {
-
-//   const file = pathFormat(path).file()
-//   this._routes = this._routes.filter(route => route.file != file)
-
+    const file = filepath.getFile(path)
+    this._routes = this._routes.filter((route) => route.file != file)
   }
 }
-
-
-// get routes() {
-//   return sortBy(this._routes, ['depth', 'file'])
-//     .filter(({ file }) => !/[404|app]\.js$/.test(file))
-
-// () {
-//   return readFileSync(`${__dirname}/files/nexus.mustache`, 'utf-8')
-// getNexusPath() {
-// renderNexusJS() {
-//   return Mustache.render(this.nexusJS, { routes: this.routes })
-// async outputNexusJS() {
-//   await outputFile(this.nexusPath, this.renderNexusJS())

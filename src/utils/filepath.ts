@@ -1,7 +1,5 @@
 function getFile(path: string) {
-  return path
-    .replace(/^pages/, '.')
-    .replace(/[\[\]]/g, '_')
+  return path.replace(/^pages/, '.').replace(/[\[\]]/g, '_')
 }
 
 function getPattern(path: string) {
@@ -14,4 +12,10 @@ function getPattern(path: string) {
 
 function getComponent(path: string) {
   return path.replace(/[\[\]\-\/\.]/g, '_').toUpperCase()
+}
+
+export default {
+  getComponent,
+  getPattern,
+  getFile
 }
