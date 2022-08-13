@@ -13,13 +13,12 @@ const postcssLoader = 'postcss-loader'
 const styleLoader = 'style-loader'
 const cssLoader = 'css-loader'
 
-export default function _cssLoader({
-  extract,
-  modules
-}: {
+export type CssLoaderOpts = {
   extract?: boolean
   modules?: boolean
-}) {
+}
+
+export default function CssLoader({ extract, modules }: CssLoaderOpts) {
   return [
     extract ? cssExtractLoader : styleLoader,
     modules ? cssModulesLoader : cssLoader,

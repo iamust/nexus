@@ -9,9 +9,12 @@
   "dependencies": {
     "@swc/core": "^1.2.224",
     "@tossdev/click": "^1.0.2",
+    "chokidar": "^3.5.3",
     "css-loader": "^6.7.1",
+    "fast-glob": "^3.2.11",
     "fs-extra": "^10.1.0",
     "mini-css-extract-plugin": "^2.6.1",
+    "mustache": "^4.2.0",
     "postcss": "^8.4.16",
     "postcss-loader": "^7.0.1",
     "style-loader": "^3.3.1",

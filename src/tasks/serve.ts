@@ -12,7 +12,8 @@ export const serveTask = defineTask({
   }
 })
 
-// mustache lodash fs-extra trash chokidar
+//  lodash fs-extra trash
+
 // html-webpack-plugin
 // chokidar
 //   .watch('pages/**/*.js')

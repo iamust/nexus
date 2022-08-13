@@ -1,4 +1,4 @@
-export default function _swcLoader() {
+export default function swcLoader() {
   return [
     {
       loader: 'swc-loader',
