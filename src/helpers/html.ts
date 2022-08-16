@@ -1,5 +1,5 @@
-import mustache from 'mustache'
 import { outputFileSync } from 'fs-extra'
+import mustache from 'mustache'
 
 const template = `<!DOCTYPE html>
 <html>
