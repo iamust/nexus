@@ -1,5 +1,4 @@
 import { defineTask } from '@tossdev/click'
-import { buildOptions } from '../utils'
 import { Bundler } from '../index'
 import page from '../page'
 
@@ -7,7 +6,7 @@ export const serveTask = defineTask({
   name: 'dev',
   about: 'serve',
   handler(args, opts) {
-    const config = buildOptions(opts)
+    // const config = buildOptions(opts)
     const bundler = new Bundler()
     bundler.serve()
     page.watch()

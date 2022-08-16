@@ -1,5 +1,3 @@
-import type { Configuration } from 'webpack'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 const root = process.cwd()
 const mode = process.env.NODE_ENV || 'development'

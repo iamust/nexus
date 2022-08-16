@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+import mustache from 'mustache'
+import { outputFileSync } from 'fs-extra'
+
+const template = `<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -9,4 +12,9 @@
     <div id="nexus"></div>
     <script type="module" src="./.nexus/main.js"></script>
   </body>
-</html>
+</html>`
+
+export function outputHtml() {
+  const data = mustache.render(template, {})
+  outputFileSync(`${process.cwd()}/index.html`, data)
+}

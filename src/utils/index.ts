@@ -6,8 +6,3 @@ export function getUserConfig() {
     ? require(path)
     : {}
 }
-
-export function buildOptions(opts: Record<string, any>) {
-  const config = getUserConfig()
-  return { ...config, ...opts }
-}

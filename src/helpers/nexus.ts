@@ -1,4 +1,7 @@
-import React from 'react'
+import mustache from 'mustache'
+import { outputFileSync } from 'fs-extra'
+
+const template = `import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import PageApp from '@tossdev/nexus/components/app'
@@ -26,4 +29,16 @@ ReactDOM.render(<NexusApp Component={() => {
       </Switch>
     </Router>
   )
-}} />, document.getElementById('nexus'))
+}} />, document.getElementById('nexus'))`
+
+export type Route = {
+  file: string
+  depth: number
+  pattern: string
+  component: string
+}
+
+export function outputNexusJS(routes: Route[]) {
+  const data = mustache.render(template, { routes })
+  outputFileSync(`${process.cwd()}/.nexus/main.js`, data)
+}

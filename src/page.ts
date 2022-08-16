@@ -4,29 +4,10 @@ import mustache from 'mustache'
 import chokidar from 'chokidar'
 import sortBy from 'lodash/sortBy'
 import filepath from './utils/filepath'
-
-type Route = {
-  file: string
-  depth: number
-  pattern: string
-  component: string
-}
+import type { Route } from './helpers/nexus'
 
 function getPaths() {
   return glob.sync('./pages/**/*.{tsx,jsx}')
-}
-
-function getMainJS() {
-  return `${process.cwd()}/.nexus/main.js`
-}
-
-function getTemplate() {
-  return fs.readFileSync(`${__dirname}/files/nexus.mustache`, 'utf-8')
-}
-
-function outputNexusJS(routes: Route[]) {
-  const data = mustache.render(getTemplate(), { routes })
-  fs.outputFileSync(getMainJS(), data)
 }
 
 function copyNexusPage(path: string) {
@@ -59,14 +40,14 @@ class Page {
       .on('add', (path) => {
         copyNexusPage(path)
         this.addRoute(path)
-        outputNexusJS(this.routes())
+        // outputNexusJS(this.routes())
       })
       .on('change', (path) => {
         copyNexusPage(path)
       })
       .on('unlink', (path) => {
         this.removeRoute(path)
-        outputNexusJS(this.routes())
+        // outputNexusJS(this.routes())
       })
   }
 
