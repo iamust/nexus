@@ -1,3 +1,10 @@
 #!/usr/bin/env node
+const { click } = require('@tossdev/click')
+const { buildTask } = require('../dist/tasks/build')
+const { serveTask } = require('../dist/tasks/serve')
 
-// compiler.run((err, stats) => {
+click
+  .program('nexus')
+  .addTask(buildTask)
+  .addTask(serveTask)
+  .execute()

@@ -1,22 +1,23 @@
 import { defineTask } from '@tossdev/click'
-import { Bundler } from '../index'
+import { createServer } from 'vite'
 // import page from '../page'
 
 export const serveTask = defineTask({
   name: 'dev',
-  about: 'serve',
+  about: 'start dev server',
   handler(args, opts) {
-    // const config = buildOptions(opts)
-    const bundler = new Bundler()
-    bundler.serve()
-    // page.watch()
+    async function runTask() {
+      const server = await createServer()
+      await server.listen()
+      server.printUrls()
+    }
+
+    runTask().catch(console.error)
   }
 })
 
 // // trash
-// // html-webpack-plugin
-// src/config.ts
-// src/index.ts
-// src/tasks/build.ts
-// src/tasks/serve.ts
-// src/utils/index.ts
+// const config = buildOptions(opts)
+// const bundler = new Bundler()
+// bundler.serve()
+// page.watch()

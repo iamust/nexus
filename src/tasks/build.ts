@@ -1,14 +1,20 @@
 import { defineTask } from '@tossdev/click'
+import { build } from 'vite'
 // import page from '../page'
 
 export const buildTask = defineTask({
   name: 'build',
-  about: '!!!!!!',
+  about: 'build for production',
   handler(args, opts) {
-    // const config = buildOptions(opts)
+    async function runTask() {
+      await build()
+    }
+
+    runTask().catch(console.error)
   }
 })
 
+// const config = buildOptions(opts)
 // const paths = await getPaths()
 // await trash('.nexus/**/*')
 // for (let path of paths) {
