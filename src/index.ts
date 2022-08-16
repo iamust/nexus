@@ -22,14 +22,15 @@ export class Bundler {
 //     outputFileSync(this.entryPath, this.entryHTML)
 //   outputEmptyJS(file) {
 //     outputFileSync(`.nexus/${file.replace(/\.js$/, '')}.js`, '')
-//   static setup(options) {
 //     const bundler = new Bundler(options)
 //     bundler.outputEmptyJS('app')
 //     bundler.outputEmptyJS('404')
 //     bundler.outputEntryHTML()
+
 // export default ({ Component, pageProps }) => {
 //   return <Component {...pageProps} />
 // }
+
 // getContent() {
 //   return readFileSync(`${__dirname}/entry.mustache`, 'utf-8')
 // }

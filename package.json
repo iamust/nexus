@@ -7,22 +7,13 @@
     "nexus": "bin/nexus.js"
   },
   "dependencies": {
-    "@swc/core": "^1.2.224",
     "@tossdev/click": "^1.0.2",
     "chokidar": "^3.5.3",
-    "css-loader": "^6.7.1",
     "fast-glob": "^3.2.11",
     "fs-extra": "^10.1.0",
     "lodash": "^4.17.21",
-    "mini-css-extract-plugin": "^2.6.1",
     "mustache": "^4.2.0",
-    "postcss": "^8.4.16",
-    "postcss-loader": "^7.0.1",
-    "style-loader": "^3.3.1",
-    "swc-loader": "^0.2.3",
-    "webpack": "^5.74.0",
-    "webpack-dev-server": "^4.9.3",
-    "webpack-manifest-plugin": "^5.0.0"
+    "vite": "^3.0.7"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
