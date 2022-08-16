@@ -1,32 +1,28 @@
-import { pathExistsSync } from 'fs-extra'
+import { copyFileSync, outputFileSync } from 'fs-extra'
+import * as strings from './helpers/strings'
 
-export function getUserConfig() {
-  const path = `${process.cwd()}/nexus.config.js`
-  return pathExistsSync(path)
-    ? require(path)
-    : {}
+const __App__ = `export default ({ Component, pageProps }) => {
+  return <Component {...pageProps} />
+}`
+
+const __404__ = `export default function __404__() {
+  return (
+    <div>
+      <h1>404</h1>
+      <p>This page could not be found</p>
+    </div>
+  )
+}`
+
+export function copyPage(path: string) {
+  const file = strings.file(path)
+  copyFileSync(path, `.nexus/${file}`)
 }
 
-// import fs from 'fs-extra'
-// import chokidar from 'chokidar'
-// export default new Page()
-// function copyNexusPage(path: string) {
-//   const file = filepath.getFile(path)
-//   fs.copyFileSync(path, `.nexus/${file}`)
-// }
-//   watch() {
-//     chokidar
-//       .watch('pages/**/*.{tsx,jsx}')
-//       .on('add', (path) => {
-//         copyNexusPage(path)
-//         this.addRoute(path)
-//         // outputNexusJS(this.routes())
-//       })
-//       .on('change', (path) => {
-//         copyNexusPage(path)
-//       })
-//       .on('unlink', (path) => {
-//         this.removeRoute(path)
-//         // outputNexusJS(this.routes())
-//       })
-//   }
+export function outputAppComponent() {
+  outputFileSync('.nexus/app.tsx', __App__)
+}
+
+export function outputNotFoundComponent() {
+  outputFileSync('.nexus/404.tsx', __404__)
+}
