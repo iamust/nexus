@@ -4,7 +4,7 @@ import { build } from 'vite'
 
 export const buildTask = defineTask({
   name: 'build',
-  about: 'build for production',
+  about: 'Build for production',
   handler(args, opts) {
     async function runTask() {
       await build()

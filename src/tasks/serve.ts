@@ -4,7 +4,7 @@ import { createServer } from 'vite'
 
 export const serveTask = defineTask({
   name: 'dev',
-  about: 'start dev server',
+  about: 'Start dev server',
   handler(args, opts) {
     async function runTask() {
       const server = await createServer()
