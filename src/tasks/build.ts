@@ -15,14 +15,3 @@ export const buildTask = defineTask({
 })
 
 // const config = buildOptions(opts)
-// const paths = await getPaths()
-// await trash('.nexus/**/*')
-// for (let path of paths) {
-//   copyNexusPage(path)
-// }
-// addPaths|paths
-// outputNexusJS
-// copyNexusPage
-// getPaths
-// await glob('pages/**/*.js')
-// getEntryPath

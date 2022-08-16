@@ -17,7 +17,3 @@ export const serveTask = defineTask({
 })
 
 // // trash
-// const config = buildOptions(opts)
-// const bundler = new Bundler()
-// bundler.serve()
-// page.watch()

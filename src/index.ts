@@ -1,10 +1,13 @@
 
+
+
+
+
 // import chokidar from 'chokidar'
 // export class Bundler {
-//   outputEmptyJS(file) {
-//     outputFileSync(`.nexus/${file.replace(/\.js$/, '')}.js`, '')
-//     const bundler = new Bundler(options)
+// const bundler = new Bundler(options)
 // import fs from 'fs-extra'
+// import { pathExistsSync } from 'fs-extra'
 //   watch() {
 //     chokidar
 //       .watch('pages/**/*.{tsx,jsx}')
@@ -21,4 +24,24 @@
 //         // outputNexusJS(this.routes())
 //       })
 //   }
-// import { pathExistsSync } from 'fs-extra'
+
+// const paths = await getPaths()
+// await trash('.nexus/**/*')
+// for (let path of paths) {
+//   copyNexusPage(path)
+// }
+// addPaths|paths
+// outputNexusJS
+// copyNexusPage
+// getPaths
+// await glob('pages/**/*.js')
+// getEntryPath
+
+// const config = buildOptions(opts)
+// const bundler = new Bundler()
+// bundler.serve()
+// page.watch()
+
+// src/index.ts
+// src/tasks/build.ts
+// src/tasks/serve.ts
