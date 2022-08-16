@@ -1,5 +1,5 @@
 import { defineTask } from '@tossdev/click'
-import page from '../page'
+// import page from '../page'
 
 export const buildTask = defineTask({
   name: 'build',
