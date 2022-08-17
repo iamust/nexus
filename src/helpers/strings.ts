@@ -9,11 +9,13 @@ export function depth(path: string) {
 }
 
 export function pattern(path: string) {
-  return path
-    .replace(/^pages/, '')
-    .replace(/\.tsx$/, '')
-    .replace(/\/index$/, '')
-    .replace(/\[([_a-z]+)\]/g, ':$1')
+  return (
+    path
+      .replace(/^pages/, '')
+      .replace(/\.tsx$/, '')
+      .replace(/\/index$/, '')
+      .replace(/\[([_a-z]+)\]/g, ':$1') || '/'
+  )
 }
 
 export function component(path: string) {
