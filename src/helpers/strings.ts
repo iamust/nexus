@@ -11,7 +11,7 @@ export function depth(path: string) {
 export function pattern(path: string) {
   return path
     .replace(/^pages/, '')
-    .replace(/\.tsx?$/, '')
+    .replace(/\.tsx$/, '')
     .replace(/index$/, '')
     .replace(/\[([_a-z]+)\]/g, ':$1')
 }

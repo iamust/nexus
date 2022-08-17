@@ -10,7 +10,7 @@ const template = `<!DOCTYPE html>
   </head>
   <body>
     <div id="nexus"></div>
-    <script type="module" src=".nexus/main.js"></script>
+    <script type="module" src="/.nexus/main.js"></script>
   </body>
 </html>`
 

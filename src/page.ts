@@ -15,7 +15,7 @@ class Page {
 
   routes() {
     return sortBy(this._routes, ['depth', 'file']).filter(
-      ({ file }) => !/[404|app]\.tsx?$/.test(file)
+      ({ file }) => !/[404|app]\.tsx$/.test(file)
     )
   }
 

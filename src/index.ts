@@ -39,7 +39,7 @@ export async function setup() {
     outputHtml()
   }
 
-  if (!pathExistsSync('.nexus/main.ts')) {
+  if (!pathExistsSync('.nexus/main.tsx')) {
     outputNexusJS(page.routes())
   }
 

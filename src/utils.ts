@@ -1,7 +1,7 @@
 import { copyFileSync, outputFileSync } from 'fs-extra'
 import * as strings from './helpers/strings'
 
-const __App__ = `export default ({ Component, pageProps }) => {
+const __App__ = `export default function App({ Component, pageProps }) {
   return <Component {...pageProps} />
 }`
 
