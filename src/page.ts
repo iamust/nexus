@@ -20,6 +20,7 @@ class Page {
   }
 
   addRoute(path: string) {
+    this.removeRoute(path)
     this._routes.push({
       file: strings.file(path),
       depth: strings.depth(path),
@@ -35,7 +36,7 @@ class Page {
 }
 
 export function getPaths() {
-  return glob.sync('./pages/**/*.{tsx,jsx}')
+  return glob.sync('pages/**/*.{tsx,jsx}')
 }
 
 export const page = new Page(getPaths())

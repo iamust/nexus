@@ -1,6 +1,6 @@
 import { defineTask } from '@tossdev/click'
 import { createServer } from 'vite'
-import { setup } from '../index'
+import { setup, watch } from '..'
 
 export const serveTask = defineTask({
   name: 'dev',
@@ -11,6 +11,7 @@ export const serveTask = defineTask({
       const server = await createServer()
       await server.listen()
       server.printUrls()
+      watch()
     }
 
     runTask().catch(console.error)

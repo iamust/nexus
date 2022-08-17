@@ -12,7 +12,7 @@ export function pattern(path: string) {
   return path
     .replace(/^pages/, '')
     .replace(/\.tsx$/, '')
-    .replace(/index$/, '')
+    .replace(/\/index$/, '')
     .replace(/\[([_a-z]+)\]/g, ':$1')
 }
 

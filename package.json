@@ -1,6 +1,6 @@
 {
   "name": "@tossdev/nexus",
-  "version": "1.0.5",
+  "version": "1.0.9",
   "license": "MIT",
   "bin": {
     "nexus": "bin/nexus.js"

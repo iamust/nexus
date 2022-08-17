@@ -1,4 +1,4 @@
-import { copyFileSync, outputFileSync } from 'fs-extra'
+import { copySync, outputFileSync } from 'fs-extra'
 import * as strings from './helpers/strings'
 
 const __App__ = `export default function App({ Component, pageProps }) {
@@ -16,7 +16,7 @@ const __404__ = `export default function __404__() {
 
 export function copyPage(path: string) {
   const file = strings.file(path)
-  copyFileSync(path, `.nexus/${file}`)
+  copySync(path, file.replace(/^\./, '.nexus'))
 }
 
 export function outputAppComponent() {

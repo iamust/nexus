@@ -35,12 +35,10 @@ export async function setup() {
     copyPage(path)
   }
 
+  outputNexusJS(page.routes())
+
   if (!pathExistsSync('index.html')) {
     outputHtml()
-  }
-
-  if (!pathExistsSync('.nexus/main.tsx')) {
-    outputNexusJS(page.routes())
   }
 
   if (!pathExistsSync('.nexus/app.tsx')) {
