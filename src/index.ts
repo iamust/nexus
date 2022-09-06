@@ -20,7 +20,7 @@ function unlinkCallback(path: string) {
   outputNexusJS(page.routes())
 }
 
-export function watch() {
+export async function watch() {
   chokidar
     .watch('pages/**/*.{tsx,jsx}')
     .on('add', addCallback)
