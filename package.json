@@ -6,7 +6,7 @@
     "nexus": "bin/nexus.js"
   },
   "dependencies": {
-    "@tossdev/click": "^1.0.2",
+    "@tossdev/click": "^1.0.4",
     "chokidar": "^3.5.3",
     "fast-glob": "^3.2.11",
     "fs-extra": "^10.1.0",
