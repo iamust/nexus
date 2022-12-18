@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-const { click } = require('@tossdev/click')
+const { remix } = require('@tossdev/remix')
 const { buildTask } = require('../dist/tasks/build')
 const { serveTask } = require('../dist/tasks/serve')
 
-click
+remix
   .program('nexus')
   .addTask(buildTask)
   .addTask(serveTask)

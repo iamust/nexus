@@ -1,4 +1,4 @@
-import { defineTask } from '@tossdev/click'
+import { defineTask } from '@tossdev/remix'
 import { createServer } from 'vite'
 import { setup, watch } from '..'
 
